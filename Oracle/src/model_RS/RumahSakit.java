@@ -72,8 +72,13 @@ public class RumahSakit {
                             + "VALUES ('" + temp.getIdDokter() + "','"
                             + temp.getNama() + "')";
                     // eksekusi query
-                    statement.execute(query);
-                    con.commit();
+                    try {
+                        statement.execute(query);
+                        con.commit();
+                    } catch (Exception ex) {
+                        System.out.println("Perintah INSERT gagal");
+                    }
+
                 }
             }
             // tutup koneksi
